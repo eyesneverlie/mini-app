@@ -1,0 +1,15 @@
+@import './styles/reset';
+@import './styles/typography';
+@import './styles/colors';
+
+html {
+  font-size: $base-font-size;
+  height: 100vh;
+}
+
+body {
+  font-family: $primary-font-family;
+  font-size: $font-size-14;
+  color: $primary-text-color;
+  background-color: $primary-background-color;
+}

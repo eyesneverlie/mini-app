@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  padding: .75rem;
+}
+
+.buttonsContainer {
+  display: flex;
+  margin: 10px 0;
+
+  button {
+    margin-right: 10px;
+  }
+}

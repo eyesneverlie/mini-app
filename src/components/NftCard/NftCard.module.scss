@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 2px solid grey;
+  max-width: 48%;
+
+  &:nth-child(n + 3) {
+    margin-top: 1rem;
+  } 
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: lightblue;
+  height: 186px;
+  width: 100%;
+
+  img {
+    height: 100%;
+    max-width: 100%;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.name, .id {
+  font-size: .875rem;
+  line-height: 1.25rem;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.description {
+  font-size: .75rem;
+  line-height: 1rem;
+}
