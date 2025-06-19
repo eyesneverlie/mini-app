@@ -26,7 +26,7 @@ const getParams = (params: { [key: string]: unknown }): { params: { [key: string
 export const getCollections = async ({ order = 'asc', orderBy = '', page = 0, limit = PER_PAGE }): Promise<{ total: number; items: ICollection[] }> => {
   const response = await api.get<IGetCollectionsResponse>('/collections', getParams({ order, orderBy, page, limit }));
 
-  const items: ICollection[] = response.data.items.map((item) => ({
+  const items: ICollection[] = response.data.items.map((item: ICollection) => ({
     id: item.id,
     name: item.name,
     imageUrl: item.imageUrl,
