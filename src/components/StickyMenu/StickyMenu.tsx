@@ -1,28 +1,30 @@
+import { NavLink } from 'react-router-dom';
+import { APP_ROUTES } from '../../data-access';
 import styles from './StickyMenu.module.scss';
 
 export const StickyMenu = () => {
   return (
-    <ul className={styles.bar}>
-      <li className={styles.item}>
+    <nav className={styles.bar}>
+      <NavLink to={APP_ROUTES.market} className={styles.item}>
+        <span className={styles.icon}>&nbsp;</span>
+        Market
+      </NavLink>
+      <NavLink to={APP_ROUTES.activity} className={styles.item}>
         <span className={styles.icon}>&nbsp;</span>
         Activity
-      </li>
-      <li className={styles.item}>
-        <span className={styles.icon}>&nbsp;</span>
-        Profile
-      </li>
-      <li className={styles.item}>
+      </NavLink>
+      <NavLink to={APP_ROUTES.gifts} className={styles.item}>
         <span className={styles.icon}>&nbsp;</span>
         My Gifts
-      </li>
-      <li className={styles.item}>
+      </NavLink>
+      <NavLink to={APP_ROUTES.pass} className={styles.item}>
         <span className={styles.icon}>&nbsp;</span>
         Pass
-      </li>
-      <li className={styles.item}>
+      </NavLink>
+      <NavLink to={APP_ROUTES.profile} className={styles.item}>
         <span className={styles.icon}>&nbsp;</span>
         Profile
-      </li>
-    </ul>
+      </NavLink>
+    </nav>
   );
 };

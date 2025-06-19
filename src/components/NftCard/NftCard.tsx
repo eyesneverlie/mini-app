@@ -1,3 +1,6 @@
+import { useDispatch } from 'react-redux';
+import { ModalType } from '../../data-access';
+import { storeModalsActions } from '../../store/slices/modals';
 import { Button } from '../../ui';
 import styles from './NftCard.module.scss';
 
@@ -16,8 +19,15 @@ export const NftCard = ({
   description,
   price,
 }: INftCardProps) => {
+  const dispatch = useDispatch();
+
   const handlePurchaseClick = (): void => {
-    console.log('clicked on purchase button');
+    dispatch(
+      storeModalsActions.open({
+        type: ModalType.SaleDetails,
+        props: { item: { imageUrl, name, id, description, price } },
+      })
+    );
   };
 
   return (

@@ -1,10 +1,10 @@
-import { ModalType } from "../../data-access";
+import { ModalType } from '../../data-access';
 import {
   ConfirmPurchaseModal,
   DepositFundsModal,
   SaleDetailsModal,
   WithdrawFundsModal,
-} from "../ModalsContainer";
+} from '../ModalsContainer';
 
 interface IModalsFactoryProps {
   type: ModalType | null;

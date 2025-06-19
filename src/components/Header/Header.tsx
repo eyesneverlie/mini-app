@@ -9,8 +9,10 @@ export const Header = () => {
         imageUrl='https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=mail@ashallendesign.co.uk'
         fullName='Joe Doe'
       />
-      <ActionButtons />
-      <Button className={styles.connectWalletButton}>Connect Wallet</Button>
+      <div className={styles.controlsWrap}>
+        <ActionButtons />
+        <Button className={styles.connectWalletButton}>Connect Wallet</Button>
+      </div>
     </div>
   );
 };
