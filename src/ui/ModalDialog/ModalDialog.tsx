@@ -12,9 +12,16 @@ type ModalDialogProps = {
   children: React.ReactNode;
 };
 
-export const ModalDialog: React.FC<ModalDialogProps> = ({ isOpen, onClose, onConfirm, title = '', description = '', children }) => {
+export const ModalDialog: React.FC<ModalDialogProps> = ({
+  isOpen,
+  onClose,
+  onConfirm,
+  title = '',
+  description = '',
+  children,
+}) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  
+
   // Add a small delay to allow CSS transition on mount
   useEffect(() => {
     let animationTimeoutId: ReturnType<typeof setTimeout>;
@@ -27,7 +34,7 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({ isOpen, onClose, onCon
 
     return () => {
       clearTimeout(animationTimeoutId);
-    }
+    };
   }, [isOpen]);
 
   if (!isOpen) {
@@ -35,7 +42,10 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({ isOpen, onClose, onCon
   }
 
   return ReactDOM.createPortal(
-    <div className={`${styles.overlay} ${isVisible ? styles.show : ''}`} onClick={onClose}>
+    <div
+      className={`${styles.overlay} ${isVisible ? styles.show : ''}`}
+      onClick={onClose}
+    >
       <div className={styles.content} onClick={(e) => e.stopPropagation()}>
         <Button className={styles.closeButton} onClick={onClose}>
           &times;
@@ -51,4 +61,4 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({ isOpen, onClose, onCon
     </div>,
     document.body
   );
-}
+};

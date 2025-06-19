@@ -1,0 +1,22 @@
+@import '../../../styles//colors';
+
+.container {
+  display: flex;
+  border-radius: 999px;
+  overflow: hidden;
+  align-items: center;
+  padding-left: 10px;
+  height: 36px;
+  color: $color-white;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px 0 0;
+  background: #191919;
+  height: 100%;
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+}

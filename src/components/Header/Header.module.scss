@@ -1,9 +1,7 @@
 .container {
   display: flex;
   align-items: flex-start;
-  flex-direction: column;
   width: 100%;
-  padding: .75rem;
 }
 
 .buttonsContainer {
@@ -13,4 +11,10 @@
   button {
     margin-right: 10px;
   }
+}
+
+.connectWalletButton {
+  display: flex;
+  flex: 1 1 0;
+  margin-left: 12px;
 }

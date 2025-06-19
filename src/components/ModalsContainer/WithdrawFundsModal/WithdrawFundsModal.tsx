@@ -1,17 +1,20 @@
-import { useState } from 'react';
-import { ModalDialog } from '../../../ui';
+import { useState } from "react";
+import { ModalDialog } from "../../../ui";
 
 interface IWithdrawFundsModalProps {
   onClose: () => void;
   onSuccess?: () => void;
 }
 
-export const WithdrawFundsModal = ({ onClose, onSuccess }: IWithdrawFundsModalProps) => {
+export const WithdrawFundsModal = ({
+  onClose,
+  onSuccess,
+}: IWithdrawFundsModalProps) => {
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
 
   const handleConfirmation = (): void => {
     setIsProcessing(true);
-    console.log('handling confirmation of withdrawal...');
+    console.log("handling confirmation of withdrawal...");
     // TODO: temp emulation
     setTimeout(() => {
       setIsProcessing(false);
@@ -19,13 +22,13 @@ export const WithdrawFundsModal = ({ onClose, onSuccess }: IWithdrawFundsModalPr
         onSuccess();
       }
     }, 3000);
-  }
+  };
 
   const handleClose = (): void => {
     if (!isProcessing) {
       onClose();
     }
-  }
+  };
 
   return (
     <ModalDialog
@@ -38,4 +41,4 @@ export const WithdrawFundsModal = ({ onClose, onSuccess }: IWithdrawFundsModalPr
       Here will be WithdrawFundsModal content
     </ModalDialog>
   );
-}
+};

@@ -1,4 +1,4 @@
-import { ModalDialog } from '../../../ui';
+import { ModalDialog } from "../../../ui";
 
 interface ISaleDetailsModalProps {
   onClose: () => void;
@@ -6,12 +6,8 @@ interface ISaleDetailsModalProps {
 
 export const SaleDetailsModal = ({ onClose }: ISaleDetailsModalProps) => {
   return (
-    <ModalDialog
-      title="Sale Details"
-      isOpen={true}
-      onClose={onClose}
-    >
+    <ModalDialog title="Sale Details" isOpen={true} onClose={onClose}>
       Here will be SaleDetailsModal content
     </ModalDialog>
   );
-}
+};

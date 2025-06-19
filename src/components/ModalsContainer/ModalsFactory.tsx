@@ -1,5 +1,10 @@
-import { ModalType } from '../../data-access';
-import { ConfirmPurchaseModal, DepositFundsModal, SaleDetailsModal, WithdrawFundsModal } from '../ModalsContainer';
+import { ModalType } from "../../data-access";
+import {
+  ConfirmPurchaseModal,
+  DepositFundsModal,
+  SaleDetailsModal,
+  WithdrawFundsModal,
+} from "../ModalsContainer";
 
 interface IModalsFactoryProps {
   type: ModalType | null;
@@ -7,7 +12,11 @@ interface IModalsFactoryProps {
   [key: string]: unknown;
 }
 
-export const ModalsFactory = ({ type, onClose, ...rest }: IModalsFactoryProps) => {
+export const ModalsFactory = ({
+  type,
+  onClose,
+  ...rest
+}: IModalsFactoryProps) => {
   switch (type) {
     case ModalType.ConfirmPurchase:
       return <ConfirmPurchaseModal onClose={onClose} {...rest} />;
@@ -20,4 +29,4 @@ export const ModalsFactory = ({ type, onClose, ...rest }: IModalsFactoryProps) =
   }
 
   return null;
-}
+};

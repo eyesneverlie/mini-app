@@ -6,7 +6,10 @@ interface IConfirmPurchaseModalProps {
   onSuccess?: () => void;
 }
 
-export const ConfirmPurchaseModal = ({ onClose, onSuccess }: IConfirmPurchaseModalProps) => {
+export const ConfirmPurchaseModal = ({
+  onClose,
+  onSuccess,
+}: IConfirmPurchaseModalProps) => {
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
 
   const handleConfirmation = (): void => {
@@ -19,18 +22,18 @@ export const ConfirmPurchaseModal = ({ onClose, onSuccess }: IConfirmPurchaseMod
         onSuccess();
       }
     }, 3000);
-  }
+  };
 
   const handleClose = (): void => {
     if (!isProcessing) {
       onClose();
     }
-  }
+  };
 
   return (
     <ModalDialog
-      title="Confirm Purchase"
-      description="You are about to purchase the following sticker:"
+      title='Confirm Purchase'
+      description='You are about to purchase the following sticker:'
       isOpen={true}
       onConfirm={handleConfirmation}
       onClose={handleClose}
@@ -38,4 +41,4 @@ export const ConfirmPurchaseModal = ({ onClose, onSuccess }: IConfirmPurchaseMod
       Here will be ConfirmPurchaseModal content
     </ModalDialog>
   );
-}
+};

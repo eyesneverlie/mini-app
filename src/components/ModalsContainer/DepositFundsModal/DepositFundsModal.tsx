@@ -1,17 +1,20 @@
-import { useState } from 'react';
-import { ModalDialog } from '../../../ui';
+import { useState } from "react";
+import { ModalDialog } from "../../../ui";
 
 interface IDepositFundsModalProps {
   onClose: () => void;
   onSuccess?: () => void;
 }
 
-export const DepositFundsModal = ({ onClose, onSuccess }: IDepositFundsModalProps) => {
+export const DepositFundsModal = ({
+  onClose,
+  onSuccess,
+}: IDepositFundsModalProps) => {
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
 
   const handleConfirmation = (): void => {
     setIsProcessing(true);
-    console.log('handling confirmation of deposit sticker...');
+    console.log("handling confirmation of deposit sticker...");
     // TODO: temp emulation
     setTimeout(() => {
       setIsProcessing(false);
@@ -19,13 +22,13 @@ export const DepositFundsModal = ({ onClose, onSuccess }: IDepositFundsModalProp
         onSuccess();
       }
     }, 3000);
-  }
+  };
 
   const handleClose = (): void => {
     if (!isProcessing) {
       onClose();
     }
-  }
+  };
 
   return (
     <ModalDialog
@@ -38,4 +41,4 @@ export const DepositFundsModal = ({ onClose, onSuccess }: IDepositFundsModalProp
       Here will be DepositFundsModal content
     </ModalDialog>
   );
-}
+};

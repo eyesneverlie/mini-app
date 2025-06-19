@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.searchButton {
+  height: 46px;
+  width: 46px;
+}
+
+.selectors {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 6px;
+  flex: 1 1 0;
+
+  > div {
+    width: 100%;
+
+    &:nth-child(1) {
+      margin-right: 6px;
+    }
+  }
+}
+
+.resetButton {
+  margin-right: 6px;
+}
