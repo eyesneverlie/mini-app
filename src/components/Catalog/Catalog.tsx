@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ICollection, SegmentType } from '../../data-access';
-import { useOrientation } from '../../hooks';
+import { useIsWideScreen } from '../../hooks';
 import { NftCard, NftCardSkeleton } from '../NftCard';
 import { SegmentToggle } from '../SegmentToggle';
 import styles from './Catalog.module.scss';
@@ -11,8 +11,8 @@ interface ICatalogProps {
 
 export const Catalog = ({ items }: ICatalogProps) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const screenOrientation = useOrientation();
-  const cardPerLine = screenOrientation === 'portrait' ? 2 : 3;
+  const isWideScreen = useIsWideScreen();
+  const cardsPerLine = isWideScreen ? 3 : 2;
 
   useEffect(() => {
     setTimeout(() => {
@@ -29,7 +29,7 @@ export const Catalog = ({ items }: ICatalogProps) => {
       <SegmentToggle onToggle={handleSegmentToggle} />
       <div className={styles.catalog}>
         {isLoading
-          ? Array(cardPerLine)
+          ? Array(cardsPerLine)
               .fill(null)
               .map((_, i: number) => <NftCardSkeleton key={`id-${i + 1}`} />)
           : items.map((card: ICollection) => (

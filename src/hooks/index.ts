@@ -1,1 +1,1 @@
-export * from './useOrientation';
+export * from './useIsWideScreen';

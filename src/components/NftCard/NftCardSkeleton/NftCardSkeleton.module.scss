@@ -35,7 +35,7 @@
 }
 
 .image {
-  height: 130px;
+  min-height: 130px;
   width: 100%;
   @extend .skeleton;
 }
