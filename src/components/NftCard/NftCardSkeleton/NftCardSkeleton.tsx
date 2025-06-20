@@ -10,6 +10,9 @@ export const NftCardSkeleton = () => {
           <div className={styles.index} />
         </div>
         <div className={styles.description} />
+        <div className={styles.description} />
+        <div className={styles.description} />
+        <div className={styles.shortDescription} />
         <div className={styles.button} />
       </div>
     </div>

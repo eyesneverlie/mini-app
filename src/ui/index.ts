@@ -3,3 +3,4 @@ export * from './Button';
 export * from './Select';
 export * from './Avatar';
 export * from './CircularButton';
+export * from './Input';

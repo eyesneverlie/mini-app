@@ -69,9 +69,14 @@
 
 .description {
   width: 100%;
-  height: 0.75rem;
+  height: .75rem;
   border-radius: 4px;
   @extend .skeleton;
+}
+
+.shortDescription {
+  width: 50%;
+  @extend .description;
 }
 
 .button {

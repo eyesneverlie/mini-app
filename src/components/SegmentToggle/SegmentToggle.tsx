@@ -4,9 +4,13 @@ import styles from './SegmentToggle.module.scss';
 
 interface ISegmentToggleProps {
   onToggle: (segment: SegmentType) => void;
+  className?: string;
 }
 
-export const SegmentToggle = ({ onToggle }: ISegmentToggleProps) => {
+export const SegmentToggle = ({
+  onToggle,
+  className = '',
+}: ISegmentToggleProps) => {
   const [activeSegment, setActiveSegment] = useState<SegmentType>('gift');
 
   useEffect(() => {
@@ -14,7 +18,7 @@ export const SegmentToggle = ({ onToggle }: ISegmentToggleProps) => {
   }, [activeSegment, onToggle]);
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className}`}>
       <div className={`${(styles.indicator, styles[activeSegment])}`} />
       <button
         className={`${styles.toggleBtn} ${

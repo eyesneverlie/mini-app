@@ -1,0 +1,18 @@
+@import '../../styles/colors';
+
+.content {
+  padding-bottom: 72px;
+}
+
+.segmentToggle {
+  margin-top: 16px;
+}
+
+.loadMore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  color: $color-white;
+  text-align: center;
+}

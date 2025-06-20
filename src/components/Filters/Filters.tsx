@@ -1,4 +1,4 @@
-import { Select, CircularButton } from '../../ui';
+import { Select, CircularButton, Input } from '../../ui';
 import styles from './Filters.module.scss';
 
 export const Filters = () => {
@@ -16,15 +16,9 @@ export const Filters = () => {
 
   return (
     <div className={styles.container}>
-      <CircularButton
-        className={styles.searchButton}
-        onClick={handleSearchClick}
-      >
-        S
-      </CircularButton>
+      <Input name='search' placeholder='Search' />
       <div className={styles.selectors}>
-        <Select name='token' options={[]} />
-        <Select name='sorting' options={[]} />
+        <Select name='sorting' options={[{ label: 'Option 1', value: '1' }]} />
       </div>
       <CircularButton className={styles.resetButton} onClick={handleResetClick}>
         R

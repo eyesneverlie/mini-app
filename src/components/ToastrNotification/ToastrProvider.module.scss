@@ -1,0 +1,32 @@
+.container {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+}
+
+.toastr {
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  animation: slideFade 0.3s ease, fadeOut 0.5s ease 2.5s forwards;
+}
+
+.toastr-success { background-color: #28a745; }
+.toastr-error   { background-color: #dc3545; }
+.toastr-info    { background-color: #007bff; }
+.toastr-warning { background-color: #ffc107; color: #000; }
+
+@keyframes slideFade {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateX(-10px); }
+}
