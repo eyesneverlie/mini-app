@@ -4,4 +4,5 @@ export const APP_ROUTES = {
   gifts: '/gifts',
   pass: '/pass',
   profile: '/profile',
+  cart: '/cart',
 };

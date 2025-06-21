@@ -5,4 +5,4 @@ export * from './Avatar';
 export * from './CircularButton';
 export * from './Input';
 export * from './SearchInput';
-export * from './GlassButton/GlassButton';
+export * from './GlassButton';

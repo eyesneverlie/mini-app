@@ -5,11 +5,11 @@
 html {
   font-size: $base-font-size;
   height: 100vh;
+  background-color: $primary-background-color;
 }
 
 body {
   font-family: $primary-font-family;
   font-size: 14px;
   color: $color-white;
-  background-color: $primary-background-color;
 }
