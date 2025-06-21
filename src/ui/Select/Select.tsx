@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import chevronUrl from '../../assets/chevron-down.svg';
 import styles from './Select.module.scss';
 
 type SelectOption = {
@@ -7,11 +8,18 @@ type SelectOption = {
 };
 
 interface ISelectProps {
-  name: string;
   options: SelectOption[];
+  name?: string;
+  size?: 'large' | 'small';
+  className?: string;
 }
 
-export const Select = ({ name, options }: ISelectProps) => {
+export const Select = ({
+  name,
+  options,
+  size = 'large',
+  className = '',
+}: ISelectProps) => {
   const [selected, setSelected] = useState<SelectOption | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -44,10 +52,13 @@ export const Select = ({ name, options }: ISelectProps) => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.button} onClick={toggleDropdown}>
+    <div className={`${styles.container} ${className}`}>
+      <div
+        className={`${styles.button} ${styles[size]}`}
+        onClick={toggleDropdown}
+      >
         <div className={styles.column}>
-          <span className={styles.label}>{name}</span>
+          {name && <span className={styles.label}>{name}</span>}
           <span className={styles.selected}>{selected?.label || ''}</span>
         </div>
         <div className={styles.column}>
@@ -56,7 +67,7 @@ export const Select = ({ name, options }: ISelectProps) => {
               isOpen ? styles.activeChevron : ''
             }`}
           >
-            ▼
+            <img src={chevronUrl} alt='chevron' />
           </span>
         </div>
       </div>

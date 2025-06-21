@@ -19,7 +19,6 @@ export const SegmentToggle = ({
 
   return (
     <div className={`${styles.container} ${className}`}>
-      <div className={`${(styles.indicator, styles[activeSegment])}`} />
       <button
         className={`${styles.toggleBtn} ${
           activeSegment === 'gift' ? styles.active : ''

@@ -6,29 +6,34 @@ interface IButtonProps {
   icon?: React.ReactNode;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
+  iconPlacement?: 'left' | 'right';
   disabled?: boolean;
   className?: string;
-  theme?: 'white' | 'blue';
 }
 
 export const Button = ({
   children,
   icon,
+  iconPlacement = 'left',
   onClick,
   type = 'button',
   disabled = false,
   className = '',
-  theme = 'blue',
 }: IButtonProps) => {
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${styles.button} ${className} ${styles[theme]}`}
+      className={`${styles.button} ${className}`}
     >
-      <span className={styles.text}>{children}</span>
-      {icon && <span className={styles.icon}>{icon}</span>}
+      {icon && iconPlacement === 'left' && (
+        <span className={styles.icon}>{icon}</span>
+      )}
+      {children}
+      {icon && iconPlacement === 'right' && (
+        <span className={styles.icon}>{icon}</span>
+      )}
     </button>
   );
 };

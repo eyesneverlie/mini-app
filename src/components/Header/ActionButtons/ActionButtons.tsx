@@ -17,7 +17,7 @@ export const ActionButtons = () => {
 
   return (
     <div className={styles.container}>
-      <Select name='token' options={[]} />
+      <Select size='small' options={[{ label: '0.0', value: '0' }]} />
       <CircularButton
         className={styles.circularButton}
         onClick={toggleDepositModal}

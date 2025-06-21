@@ -1,0 +1,50 @@
+@import '../../styles/colors';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.itemsCounter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-white-40;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 100%;
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+
+  b {
+    margin-right: 6px;
+    color: $color-white;
+  }
+}
+
+.content {
+  @extend .container;
+  margin-top: 16px;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  width: 100%;
+
+  button {
+    flex: 1 1 auto;
+
+    &:nth-child(2) {
+      margin-left: 8px;
+    }
+  }
+}

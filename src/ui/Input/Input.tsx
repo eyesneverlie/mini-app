@@ -6,7 +6,7 @@ interface IInputProps {
   className?: string;
   placeholder?: string;
   disabled?: boolean;
-  icon?: React.ReactNode | null;
+  iconUrl?: string;
 }
 
 export const Input = ({
@@ -15,14 +15,14 @@ export const Input = ({
   className = '',
   placeholder = '',
   disabled = false,
-  icon = null,
+  iconUrl = '',
 }: IInputProps) => {
   return (
-    <div className={styles.container}>
-      {icon && <div className={styles.icon}>{icon}</div>}
+    <div className={`${styles.container} ${className}`}>
+      {iconUrl && <img className={styles.icon} src={iconUrl} alt='' />}
       <input
         type='text'
-        className={`${styles.input} ${className}`}
+        className={styles.input}
         name={name}
         placeholder={placeholder}
         value={value}

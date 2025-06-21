@@ -2,30 +2,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 16px;
   width: 100%;
-}
-
-.searchButton {
-  height: 46px;
-  width: 46px;
 }
 
 .selectors {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin: 0 6px;
-  flex: 1 1 0;
+  margin-right: 8px;
+  width: 100%;
+}
 
-  > div {
-    width: 100%;
+.search,
+.sorting {
+  width: 50%;
+}
 
-    &:nth-child(1) {
-      margin-right: 6px;
-    }
-  }
+.sorting {
+  min-height: 48px;
+}
+
+.search {
+  margin-right: 8px;
 }
 
 .resetButton {
-  margin-right: 6px;
+  margin-right: 8px;
 }

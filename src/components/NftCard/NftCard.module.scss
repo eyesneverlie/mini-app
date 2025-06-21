@@ -1,41 +1,45 @@
+@import '../../styles/colors';
+@import '../../styles/typography';
+
 .container {
-  background: #1b1b1b;
-  border-radius: 20px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  color: white;
-  font-family: 'Inter', sans-serif;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease;
-  border: 1px solid lightgrey;
-
-  &:hover {
-    transform: translateY(-4px);
-  }
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid $glassy-border;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25), 0px -1px 4px 2px rgba(0, 0, 0, 0.15) inset;
+  -webkit-backdrop-filter: blur(6px); /* Safari */
+  backdrop-filter: blur(6px);
+  min-height: 242px;
+  flex-shrink: 0;
 }
 
 .avatar {
-  min-height: 130px;
-  position: relative;
-  width: 100%;
-  border-radius: 20px;
-  overflow: hidden;
-  border-bottom: 1px solid lightgrey;
+  display: flex;
+  height: 172px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25), 0px -1px 4px 2px rgba(0, 0, 0, 0.15) inset;
+  -webkit-backdrop-filter: blur(6px); /* Safari */
+  backdrop-filter: blur(6px);
 
   img {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 16px;
+    border-radius: 24px;
   }
 }
 
 .content {
   display: flex;
   flex-direction: column;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: $color-white;
   padding: 8px;
   width: 100%;
 }
@@ -44,24 +48,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 8px;
   width: 100%;
-}
-
-.name, .id {
-  font-size: 12px;
-  line-height: 1.25rem;
 }
 
 .name {
   font-weight: bold;
 }
 
+.id {
+  color: $color-white-40;
+}
+
 .description {
-  font-size: 10px;
-  line-height: 1.25;
-  margin-top: 6px;
+  margin: 8px 0;
 }
 
 .purchaseButton {
-  margin-top: 12px;
+  margin-top: 8px;
 }

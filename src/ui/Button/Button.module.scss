@@ -1,51 +1,39 @@
 
 @import '../../styles/colors';
-@import '../../styles/typography'; 
 
 .button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 999px;
-  min-height: 36px;
-  font-size: 14px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  background: $color-cyan;
+  border: 1px solid $glassy-border;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25), 0px -1px 4px 2px rgba(0, 0, 0, 0.15) inset;
+  -webkit-backdrop-filter: blur(6px); /* Safari */
+  backdrop-filter: blur(6px);
+  color: $color-white;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  transition: all .3s ease;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 
-  &:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+  &:hover {
+    background: $color-white;
+    color: $color-black;
   }
 }
 
 .icon {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  font-size: 1.2em;
-}
-
-.text {
-  display: inline-block;
-}
-
-.blue {
-  background-color: #007bff;
-  color: $color-white;
-
-  &:hover:not(:disabled) {
-    background-color: #0056b3;
-  }
-}
-
-.white {
-  background: $color-white;
-  color: $primary-text-color;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, .8);
-    color: #333;
-  }
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-right: 3px;
 }

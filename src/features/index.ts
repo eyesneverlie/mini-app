@@ -3,3 +3,4 @@ export * from './Gifts';
 export * from './Market';
 export * from './Pass';
 export * from './Profile';
+export * from './Cart';

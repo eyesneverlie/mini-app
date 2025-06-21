@@ -2,11 +2,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
-  flex-shrink: 0;
+  height: 1px solid blue;
 
   img {
     width: 100%;

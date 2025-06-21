@@ -1,42 +1,38 @@
+@import '../../styles/colors';
+
 .container {
   position: relative;
   display: flex;
   width: 100%;
-  height: 44px;
-  background: linear-gradient(to right, #1a1a1a, #333);
-  border-radius: 999px;
-  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.1);
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid $glassy-border;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25), 0px -1px 4px 2px rgba(0, 0, 0, 0.15) inset;
+  -webkit-backdrop-filter: blur(6px); /* Safari */
+  backdrop-filter: blur(6px);
   overflow: hidden;
 }
 
 .toggleBtn {
   flex: 1;
-  z-index: 1;
-  background: transparent;
   border: none;
-  color: white;
-  font-weight: 500;
-  font-size: 14px;
-  border-radius: 999px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: $color-white;
   cursor: pointer;
   transition: color 0.35s ease, background 0.35s ease;
 }
 
 .active {
-  color: #000;
-  background: #fff;
-  font-weight: 600;
-}
-
-.indicator {
-  position: absolute;
-  top: 4px;
-  bottom: 4px;
-  width: 50%;
-  background: white;
-  border-radius: 999px;
-  transition: transform 0.3s ease;
-  z-index: 0;
+  color: $color-black;
+  background: $color-white;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25), 0px -1px 4px 2px rgba(0, 0, 0, 0.15) inset;
+  backdrop-filter: blur(6px);
 }
 
 .gift {

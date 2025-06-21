@@ -41,11 +41,7 @@ export const NftCard = ({
           <span className={styles.id}>#{id}</span>
         </div>
         {description && <p className={styles.description}>{description}</p>}
-        <Button
-          className={styles.purchaseButton}
-          theme='white'
-          onClick={handlePurchaseClick}
-        >
+        <Button className={styles.purchaseButton} onClick={handlePurchaseClick}>
           {price}
         </Button>
       </div>

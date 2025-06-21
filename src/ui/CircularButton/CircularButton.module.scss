@@ -1,20 +1,28 @@
 @import '../../styles/colors';
 
+.active {
+  background: $color-white;
+  color: $color-black;
+}
+
 .container {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: none;
-  background-color: #1e1e1e;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid $glassy-border;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25), 0px -1px 4px 2px rgba(0, 0, 0, 0.15) inset;
+  -webkit-backdrop-filter: blur(6px); /* Safari */
+  backdrop-filter: blur(6px);
   color: $color-white;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transform: all .3s ease;
+  cursor: pointer;
 
   &:hover {
-    background-color: #2a2a2a;
-    transform: scale(1.05);
+    @extend .active;
   }
 }
