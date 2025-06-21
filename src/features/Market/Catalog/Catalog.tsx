@@ -31,8 +31,6 @@ export const Catalog = () => {
         imageUrl:
           'https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png',
         name: 'Diamond Eyes' + id,
-        description:
-          'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
         id,
         price: 34.8,
       };

@@ -3,7 +3,7 @@ export interface ICollection {
   id: number;
   name: string;
   imageUrl: string;
-  description: string;
+  description?: string;
   price: number;
 }
 
