@@ -51,7 +51,7 @@ export const Cart = () => {
         <GlassButton onClick={handleSelectAllClick}>Select All</GlassButton>
         <GlassButton onClick={handleClearAllClick}>Clear All</GlassButton>
       </div>
-      {isLoading && <span>Loading...</span>}
+      {isLoading && <span className={styles.loading}>Loading...</span>}
       <div className={styles.content}>
         {cartItems.map((item) => (
           <CartItem key={item.id} data={item} />
