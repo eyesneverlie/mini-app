@@ -2,6 +2,13 @@
 @import './styles/typography';
 @import './styles/colors';
 
+@font-face {
+  font-family: 'SF Pro';
+  src: url('./assets/fonts/SF Pro.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   font-size: $base-font-size;
   height: 100vh;

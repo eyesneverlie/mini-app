@@ -1,11 +1,11 @@
 import styles from './GlassyButton.module.scss';
 
-interface IGlassButtonProps {
+interface IGlassyButtonProps {
   onClick: () => void;
   children: string;
 }
 
-export const GlassButton = ({ children, onClick }: IGlassButtonProps) => {
+export const GlassyButton = ({ children, onClick }: IGlassyButtonProps) => {
   return (
     <button type='button' className={styles.button} onClick={onClick}>
       {children}

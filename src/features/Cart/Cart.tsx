@@ -1,9 +1,8 @@
 import { useState, useCallback, useEffect } from 'react';
 import { ICollection } from '../../data-access';
-import { GlassButton } from '../../ui/GlassyButton';
-
-import styles from './Cart.module.scss';
+import { GlassyButton } from '../../ui';
 import { CartItem } from './CartItem/CartItem';
+import styles from './Cart.module.scss';
 
 export const Cart = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -48,8 +47,8 @@ export const Cart = () => {
         </span>
       </div>
       <div className={styles.actionButtons}>
-        <GlassButton onClick={handleSelectAllClick}>Select All</GlassButton>
-        <GlassButton onClick={handleClearAllClick}>Clear All</GlassButton>
+        <GlassyButton onClick={handleSelectAllClick}>Select All</GlassyButton>
+        <GlassyButton onClick={handleClearAllClick}>Clear All</GlassyButton>
       </div>
       {isLoading && <span className={styles.loading}>Loading...</span>}
       <div className={styles.content}>
