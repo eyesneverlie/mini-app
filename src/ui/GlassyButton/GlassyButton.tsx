@@ -1,4 +1,4 @@
-import styles from './GlassButton.module.scss';
+import styles from './GlassyButton.module.scss';
 
 interface IGlassButtonProps {
   onClick: () => void;
