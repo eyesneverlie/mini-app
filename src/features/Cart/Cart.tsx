@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import { ICollection } from '../../data-access';
-import { GlassButton } from '../../ui';
+import { GlassButton } from '../../ui/GlassButton';
 
 import styles from './Cart.module.scss';
 import { CartItem } from './CartItem/CartItem';
