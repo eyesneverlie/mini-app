@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
-import { ModalsFactory } from "./ModalsFactory";
-import { RootState } from "../../store";
-import { storeModalsActions } from "../../store/slices/modals";
+import { useDispatch, useSelector } from 'react-redux';
+import { ModalsFactory } from './ModalsFactory';
+import { RootState } from '../../store';
+import { storeModalsActions } from '../../store/slices/modals';
 
 export const ModalsContainer = () => {
   const { type, props } = useSelector((state: RootState) => state.modals);

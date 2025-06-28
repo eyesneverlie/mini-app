@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
+import { Image } from '../../ui';
 import styles from './Avatar.module.scss';
 
 interface IAvatarProps {
-  imageUrl: string;
   fullName: string;
+  imageUrl?: string;
   href?: string;
 }
 
@@ -11,7 +12,7 @@ export const Avatar = ({ imageUrl, fullName, href = '' }: IAvatarProps) => {
   return (
     <div className={styles.container}>
       <NavLink to={href}>
-        <img src={imageUrl} alt={fullName} />
+        <Image src={imageUrl} alt={fullName} />
       </NavLink>
     </div>
   );

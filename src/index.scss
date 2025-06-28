@@ -1,23 +1,39 @@
-@import './styles/reset';
-@import './styles/typography';
-@import './styles/colors';
+@use './styles/typography';
+@use './styles/colors';
+@use './styles/reset';
 
 @font-face {
   font-family: 'SF Pro';
-  src: url('./assets/fonts/SF Pro.otf') format('opentype');
-  font-weight: normal;
+  src: url('/fonts/SF-Pro-Display-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  src: url('/fonts/SF-Pro-Display-Bold.otf') format('opentype');
+  font-weight: 700;
   font-style: normal;
 }
 
 html {
-  font-size: $base-font-size;
+  font-size: typography.$base-font-size;
   height: 100vh;
-  background-color: $primary-background-color;
+  background-color: colors.$primary-background-color;
 }
 
 body {
-  font-family: $primary-font-family;
+  font-family: typography.$primary-font-family;
   font-size: 14px;
-  color: $color-white;
-  background: url('./assets/background.png') repeat top center;
+  color: colors.$color-white;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent overlay */
+  background-blend-mode: overlay; /* or multiply, screen, etc. */
+  background-size: cover;
+  background-position: center;
+  background: linear-gradient(159deg, rgba(6, 7, 7, 0.00) 34.52%, #323539 49.07%, rgba(96, 101, 109, 0.00) 64.47%);
+  background-image: url('./assets/background.png');
+
+  &.modal-open {
+    overflow: hidden;
+  }
 }

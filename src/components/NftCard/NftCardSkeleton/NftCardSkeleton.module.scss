@@ -1,3 +1,5 @@
+@use '../../../styles/colors';
+
 @keyframes shimmer {
   100% {
     transform: translateX(100%);
@@ -7,7 +9,7 @@
 .skeleton {
   position: relative;
   overflow: hidden;
-  background-color: #e0e0e0;
+  background-color: rgba(255, 255, 255, 0.08);
 
   &::after {
     content: '';
@@ -19,7 +21,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.08),
       transparent
     );
     animation: shimmer 1.6s infinite;
@@ -29,16 +31,26 @@
 .card {
   min-height: 242px;
   width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid colors.$glassy-border;
+  border-radius: 24px;
   overflow: hidden;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .image {
   height: 172px;
   width: 100%;
+  border-radius: 24px;
+  background: linear-gradient(159deg, rgba(6, 7, 7, 0.00) 34.52%, #323539 49.07%, rgba(96, 101, 109, 0.00) 64.47%);
   @extend .skeleton;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: unset;
+    will-change: opacity;
+    backface-visibility: hidden;
+  }
 }
 
 .content {
@@ -66,18 +78,6 @@
   height: 1rem;
   border-radius: 4px;
   @extend .skeleton;
-}
-
-.description {
-  width: 100%;
-  height: .75rem;
-  border-radius: 4px;
-  @extend .skeleton;
-}
-
-.shortDescription {
-  width: 50%;
-  @extend .description;
 }
 
 .button {

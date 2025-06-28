@@ -6,3 +6,6 @@ export * from './CircularButton';
 export * from './Input';
 export * from './SearchInput';
 export * from './GlassyButton';
+export * from './Preloader';
+export * from './Image';
+export * from './PriceField';

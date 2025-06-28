@@ -1,4 +1,4 @@
-@import '../../styles/colors';
+@use '../../styles/colors';
 
 .button {
   display: flex;
@@ -7,16 +7,36 @@
   height: 32px;
   flex-shrink: 0;
   border-radius: 40px;
-  border: 1px solid $glassy-border;
+  border: 1px solid colors.$glassy-border;
   background: rgba(255, 255, 255, 0.08);
   padding: 8px;
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25), 0px -1px 4px 2px rgba(0, 0, 0, 0.15) inset;
   -webkit-backdrop-filter: blur(6px); /* Safari */
   backdrop-filter: blur(6px);
-  color: $color-white;
+  color: colors.$color-white;
   text-align: center;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  cursor: pointer;
+  transition: all .3s ease;
+
+  &:hover {
+    background: colors.$color-white;
+    color: colors.$color-black;
+    text-shadow: 0 0 .65px colors.$color-black, 0 0 .65px colors.$color-black;
+    
+    rect,
+    path {
+      stroke: colors.$color-black;
+    }
+  }
+}
+
+.icon {
+  width: 12px;
+  height: 13px;
+  fill: rgba(255, 255, 255, 0.08);
+  margin: 0 4px;
 }

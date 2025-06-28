@@ -1,4 +1,4 @@
-@import '../../../styles/colors';
+@use '../../../styles/colors';
 
 .container {
   display: flex;
@@ -7,4 +7,43 @@
   justify-content: flex-start;
   height: 100%;
   width: 100%;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  width: 100%;
+
+  > div {
+    width: 48%;
+
+    &:nth-child(1) {
+      margin-right: 8px;
+    }
+  }
+}
+
+.button {
+  height: 48px;
+  flex: 1 1 auto;
+  margin-left: 8px;
+  color: colors.$color-white-40;
+
+  path {
+    fill: colors.$color-white-40;
+  }
+
+  &:hover {
+    path {
+      fill: colors.$color-black;
+    }
+  }
+}
+
+.floorButton {
+  svg {
+    transform: rotate(180deg);
+  }
 }

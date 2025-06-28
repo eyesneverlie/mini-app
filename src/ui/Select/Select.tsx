@@ -23,7 +23,7 @@ export const Select = ({
   const [selected, setSelected] = useState<SelectOption | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const dropdownRef = useRef<HTMLUListElement | null>(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent): void => {
@@ -52,7 +52,7 @@ export const Select = ({
   };
 
   return (
-    <div className={`${styles.container} ${className}`}>
+    <div className={`${styles.container} ${className}`} ref={dropdownRef}>
       <div
         className={`${styles.button} ${styles[size]}`}
         onClick={toggleDropdown}
@@ -72,7 +72,7 @@ export const Select = ({
         </div>
       </div>
       {isOpen && (
-        <ul className={styles.menu} ref={dropdownRef}>
+        <ul className={styles.menu}>
           {options.map((opt) => (
             <li
               key={opt.value}

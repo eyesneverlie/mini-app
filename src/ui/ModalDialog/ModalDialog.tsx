@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from '../../ui';
+import { GlassyButton, Button } from '../../ui';
+import { CloseIcon } from '../../components/icons';
 import styles from './ModalDialog.module.scss';
 
 type ModalDialogProps = {
@@ -10,6 +11,7 @@ type ModalDialogProps = {
   title?: string;
   description?: string;
   children: React.ReactNode;
+  showActionButtons?: boolean;
 };
 
 export const ModalDialog: React.FC<ModalDialogProps> = ({
@@ -19,6 +21,7 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
   title = '',
   description = '',
   children,
+  showActionButtons = false,
 }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
@@ -27,12 +30,15 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
     let animationTimeoutId: ReturnType<typeof setTimeout>;
 
     if (isOpen) {
+      document.body.classList.add('modal-open');
       animationTimeoutId = setTimeout(() => setIsVisible(true), 1);
     } else {
+      document.body.classList.remove('modal-open');
       setIsVisible(false);
     }
 
     return () => {
+      document.body.classList.remove('modal-open');
       clearTimeout(animationTimeoutId);
     };
   }, [isOpen]);
@@ -47,16 +53,24 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
       onClick={onClose}
     >
       <div className={styles.content} onClick={(e) => e.stopPropagation()}>
-        <Button className={styles.closeButton} onClick={onClose}>
-          &times;
-        </Button>
+        <GlassyButton className={styles.closeButton} onClick={onClose}>
+          <CloseIcon />
+        </GlassyButton>
         {title && <h2 className={styles.title}>{title}</h2>}
         {description && <p className={styles.description}>{description}</p>}
         <div className={styles.body}>{children}</div>
-        <div className={styles.controls}>
-          <Button onClick={onConfirm}>Confirm</Button>
-          <Button onClick={onClose}>Cancel</Button>
-        </div>
+        {showActionButtons && (
+          <div className={styles.controls}>
+            <GlassyButton className={styles.cancelButton} onClick={onClose}>
+              Cancel
+            </GlassyButton>
+            {onConfirm && (
+              <Button className={styles.confirmButton} onClick={onConfirm}>
+                Confirm
+              </Button>
+            )}
+          </div>
+        )}
       </div>
     </div>,
     document.body

@@ -1,17 +1,17 @@
-@import '../../styles/colors';
-@import '../../styles/typography';
+@use '../../styles/colors';
 
 .container {
   display: flex;
   flex-direction: column;
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid $glassy-border;
+  border: 1px solid colors.$glassy-border;
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25), 0px -1px 4px 2px rgba(0, 0, 0, 0.15) inset;
   -webkit-backdrop-filter: blur(6px); /* Safari */
   backdrop-filter: blur(6px);
   min-height: 242px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 .avatar {
@@ -26,7 +26,7 @@
 
   img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     border-radius: 24px;
   }
@@ -39,7 +39,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  color: $color-white;
+  color: colors.$color-white;
   padding: 8px;
   width: 100%;
 }
@@ -57,7 +57,7 @@
 }
 
 .id {
-  color: $color-white-40;
+  color: colors.$color-white-40;
 }
 
 .description {
@@ -66,4 +66,77 @@
 
 .purchaseButton {
   margin-top: 8px;
+
+  svg {
+    height: 14px;
+    width: 14px;
+    margin-left: 4px;
+    fill: colors.$color-white;
+
+    path {
+      &:nth-child(1) {
+        fill: colors.$color-white;
+      }
+      &:nth-child(2) {
+        fill: colors.$color-cyan;
+      }  
+    }
+  }
+  &:hover {
+    svg {
+      fill: colors.$color-cyan;
+
+      path {
+        &:nth-child(1) {
+          fill: colors.$color-cyan;
+        }
+        &:nth-child(2) {
+          fill: colors.$color-white;
+        }  
+      }
+    }
+  }
+}
+
+.displayMode {
+  min-height: unset;
+  padding-bottom: 8px;
+}
+
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background-color: colors.$color-white;
+  border: 1px solid colors.$glassy-border;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25), 0px -1px 4px 2px rgba(0, 0, 0, 0.15) inset;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  border-radius: 50%;
+
+  path {
+    fill: none;
+    stroke: colors.$color-black;
+  }
+}
+
+.hot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  left: 11px;
+  cursor: pointer;
+  z-index: 10;
+
+  svg {
+    width: 19px;
+    height: 25px;
+  }
 }

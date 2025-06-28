@@ -1,6 +1,36 @@
 
-@import '../../styles/colors';
+@use '../../styles/colors';
 
 .container {
-  color: $color-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: colors.$color-white;
+  padding-bottom: 80px;
+  height: 100%;
+  width: 100%;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0;
+  width: 100%;
+}
+
+.actionButton {
+  flex: 1 1 auto;
+  height: 48px;
+  max-width: 48%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 16px;
+  width: 100%;
 }

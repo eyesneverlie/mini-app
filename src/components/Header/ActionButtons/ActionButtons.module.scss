@@ -1,10 +1,49 @@
-@import '../../../styles/colors';
+@use '../../../styles/colors';
 
 .container {
   display: flex;
   align-items: center;
   height: 32px;
   flex-shrink: 0;
-  color: $color-white;
+  color: colors.$color-white;
   min-width: 134px;
+}
+
+.circularButton {
+  svg {
+    position: relative;
+
+    &:nth-child(1) {
+      bottom: 1px;
+    }
+
+    &:nth-child(2) {
+      margin-left: 8px;
+
+      path {
+        stroke: #fff;
+      }
+    }
+  }
+
+  path {
+    stroke: colors.$color-cyan;
+  }
+
+  &:hover {
+
+    svg {
+      &:nth-child(2) {
+        path {
+          stroke: colors.$color-black;
+        }
+      }
+      &:nth-child(1) {
+        path {
+          stroke: colors.$color-cyan;
+        }
+      }
+    }
+    
+  }
 }

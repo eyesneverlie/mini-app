@@ -1,9 +1,12 @@
 import { ModalType } from '../../data-access';
 import {
+  BuyGiftModal,
   ConfirmPurchaseModal,
   DepositFundsModal,
   SaleDetailsModal,
   WithdrawFundsModal,
+  ProfileEarnTonModal,
+  ProfileSettingsModal,
 } from '../ModalsContainer';
 
 interface IModalsFactoryProps {
@@ -26,6 +29,12 @@ export const ModalsFactory = ({
       return <SaleDetailsModal onClose={onClose} {...rest} />;
     case ModalType.WithdrawFunds:
       return <WithdrawFundsModal onClose={onClose} {...rest} />;
+    case ModalType.BuyGift:
+      return <BuyGiftModal onClose={onClose} {...rest} />;
+    case ModalType.ProfileSettings:
+      return <ProfileSettingsModal onClose={onClose} {...rest} />;
+    case ModalType.ProfileEarnTon:
+      return <ProfileEarnTonModal onClose={onClose} {...rest} />;
   }
 
   return null;

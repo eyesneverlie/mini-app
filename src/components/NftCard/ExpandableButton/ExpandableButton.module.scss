@@ -1,0 +1,80 @@
+@use '../../../styles/colors';
+
+.expandableButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+  .mainButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: colors.$color-white-40;
+    color: colors.$color-white;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25), 0px -1px 4px 2px rgba(0, 0, 0, 0.05) inset;
+    backdrop-filter: blur(6px);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover {
+      background: colors.$color-white;
+      path {
+        fill: colors.$color-black;
+      }
+    }
+  }
+
+.actions {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: scale(0.9) translateY(-10px);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.actionButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  font-size: 16px;
+  background-color: colors.$color-white;
+  color: colors.$color-black;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+
+  &:nth-child(2) {
+    margin-top: 4px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  svg {
+    stroke: colors.$color-black;
+    fill: colors.$color-white;
+  }
+}
+
+.open {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}

@@ -1,12 +1,13 @@
+@use '../../styles/colors';
+
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.80);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-
   opacity: 0;
   transition: opacity 0.35s ease-out;
   pointer-events: none;
@@ -17,20 +18,24 @@
   pointer-events: auto;
 }
 
-/* Modal content animation */
 .content {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 24px;
+  box-shadow: 0px -1px 4px 0px rgba(0, 0, 0, 0.15) inset;
+  filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
+  -webkit-backdrop-filter: blur(6px); /* Safari */
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid colors.$glassy-border;
+  border-radius: 24px;
+  padding: 16px;
+  max-height: 566px;
+  overflow-y: auto;
   max-width: 520px;
-  width: 100%;
+  width: 92%;
   position: relative;
-
   opacity: 0;
   transform: scale(0.95) translateY(-10px);
-  transition:
-    opacity 0.35s ease-out,
-    transform 0.35s ease-out;
+  transition: opacity 0.35s ease-out,
+
 }
 
 /* Show state triggers the animation */
@@ -39,33 +44,75 @@
   transform: scale(1) translateY(0);
 }
 
-/* Optional styles for structure */
-.closeButton {
+button.closeButton {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  font-size: 2rem;
-  background: none;
-  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25), 0px -1px 4px 2px rgba(0, 0, 0, 0.15) inset;
+  -webkit-backdrop-filter: blur(6px); /* Safari */
+  backdrop-filter: blur(6px);
+  border-radius: 24px;
+  color: colors.$color-white;
   cursor: pointer;
+
+  svg {
+    path {
+      stroke: colors.$color-white;
+    }
+  }
+
+  &:hover {
+    svg {
+    path {
+      stroke: colors.$color-black;
+    }
+  }
+  }
 }
 
 .title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  color: colors.$color-white;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 16px;
 }
 
 .description {
-  font-size: 1.4rem;
-  margin-bottom: 2rem;
-}
-
-.body {
-  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-style: normal;
+  line-height: normal;
+  color: colors.$color-white-40;
+  margin-bottom: 23px;
 }
 
 .controls {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
   gap: 1rem;
+}
+
+button.cancelButton {
+  width: 111px;
+  height: 48px;
+  flex-shrink: 0;
+  height: 48px;
+}
+
+button.confirmButton {
+  flex: 1 1 auto;
+  height: 48px;
 }

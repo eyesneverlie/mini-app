@@ -1,5 +1,5 @@
-@import '../../styles/colors';
-@import '../../styles/typography';
+@use '../../styles/colors';
+@use '../../styles/typography';
 
 .bar {
   display: flex;
@@ -26,8 +26,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: $color-white-40;
-  font-family: $secondary-font-family;
+  color: colors.$color-white-40;
+  font-family: typography.$secondary-font-family;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -38,7 +38,7 @@
   gap: 4px;
 
   path, ellipse {
-    fill: $color-white-40;
+    fill: colors.$color-white-40;
   }
 
   &:hover {
@@ -47,9 +47,9 @@
 }
 
 .active {
-  color: $color-white;
+  color: colors.$color-white;
 
   path, ellipse {
-    fill: $color-white;
+    fill: colors.$color-white;
   }
 }

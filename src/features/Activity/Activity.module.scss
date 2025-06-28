@@ -1,6 +1,31 @@
 
-@import '../../styles/colors';
+@use '../../styles/colors';
 
 .container {
-  color: $color-white;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 80px;
+  width: 100%;
+}
+
+.segmentToggle {
+  margin-bottom: 16px;
+}
+
+.list {
+ display: flex;
+ flex-direction: column;
+ width: 100%;
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    color: colors.$color-white;
+    text-shadow: 0 0 .65px colors.$color-white, 0 0 .65px colors.$color-white;
+  }
 }

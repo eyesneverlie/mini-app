@@ -1,0 +1,47 @@
+@use '../../../styles/colors';
+
+.container,
+.shareLink {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.shareLink {
+  margin-top: 16px;
+}
+
+.shareLinkHeading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: colors.$color-white-40;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 16px;
+
+  button {
+    height: 48px;
+    flex: 1 1 auto;
+    max-width: 48%;
+
+    &:nth-child(2) {
+      path {
+        fill: none;
+        stroke: colors.$color-white;
+      }
+    }
+  }
+}

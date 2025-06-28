@@ -1,0 +1,133 @@
+@use '../../../styles/colors';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 31px;
+  background: 
+    linear-gradient(90deg, rgba(14, 35, 49, .95) 0.02%, rgba(14, 35, 49, .5) 96.05%),
+    url('../../../assets/cubic-background.png');
+  background-blend-mode: darken;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25), 0px -1px 4px 2px rgba(0, 0, 0, 0.15) inset;
+  backdrop-filter: blur(6px);
+  padding: 15px;
+  margin-bottom: 17px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  color: colors.$color-white-40;
+  text-shadow: 0px 0px 17.1px rgba(0, 0, 0, 0.74);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 8px;
+
+  svg {
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+    stroke-width: 1.5px;
+    fill: colors.$color-white-40;
+    position: relative;
+    top: 1px;
+  }
+}
+
+.points {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: colors.$color-white;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: colors.$color-white;
+    margin-left: 2px;
+  }
+}
+
+.statistics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 96px;
+  padding: 8px 16px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25), 0px -1px 4px 2px rgba(0, 0, 0, 0.15) inset;
+  backdrop-filter: blur(6px);
+  width: 100%;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  color: colors.$color-white;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.39);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 100%;
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1 1 auto;
+}
+
+.params {
+  display: flex;
+  align-items: center;
+  color: colors.$color-white-40;
+  justify-content: space-between;
+
+  svg {
+    width: 13px;
+    height: 13px;
+    margin: 0 4px;
+    fill: colors.$color-white-40;
+  }
+}
+
+.highlighted {
+  display: flex;
+  align-items: center;
+  margin-left: 4px;
+  color: colors.$color-white;
+
+  svg {
+    fill: colors.$color-white;
+  }
+}

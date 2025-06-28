@@ -3,17 +3,19 @@ import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage
 import { combineReducers } from 'redux';
 import modalsReducer from './slices/modals';
+import cartReducer from './slices/cart';
 
 // Combine all reducers
 const rootReducer = combineReducers({
   modals: modalsReducer,
+  cart: cartReducer,
 });
 
 // Configure persist
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: [],
+  whitelist: ['cart'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

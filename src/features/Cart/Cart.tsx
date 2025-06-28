@@ -1,61 +1,84 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useCallback, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { GlassyButton, Button } from '../../ui';
 import { ICollection } from '../../data-access';
-import { GlassyButton } from '../../ui';
+import { RootState } from '../../store';
+import { storeCartActions } from '../../store/slices';
+import { pluralize } from '../../utils';
+import { BinIcon } from '../../components/icons';
 import { CartItem } from './CartItem/CartItem';
+import { NothingFound } from '../../components';
 import styles from './Cart.module.scss';
 
 export const Cart = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [cartItems, setCartItems] = useState<ICollection[]>([]);
+  const [isSelectAll, setIsSelectAll] = useState<boolean>(false);
+  const { list } = useSelector((state: RootState) => state.cart);
+  const itemsSetForPurchase = list.filter((item) => item.isSelected);
+  const itemsForPurchaseIds = list
+    .filter((item) => item.isSelected)
+    .map((item) => item.id);
+  const selectedItemsTotal = itemsSetForPurchase.reduce(
+    (sum, item) => sum + item.price,
+    0
+  );
+
+  const dispatch = useDispatch();
 
   const handleSelectAllClick = useCallback((): void => {
-    console.log('select all');
-  }, []);
+    const actualSelectAll = !isSelectAll;
+    if (actualSelectAll) {
+      dispatch(storeCartActions.selectAll());
+    } else {
+      dispatch(storeCartActions.unselectAll());
+    }
+    setIsSelectAll(!setIsSelectAll);
+  }, [dispatch, isSelectAll]);
 
   const handleClearAllClick = useCallback((): void => {
-    console.log('clear all');
+    dispatch(storeCartActions.reset());
+  }, [dispatch]);
+
+  const handlePayClick = useCallback((): void => {
+    console.log('clicked on pay');
   }, []);
-
-  const fetchData = useCallback(async () => {
-    await new Promise((res) => setTimeout(res, 1000));
-
-    const items: ICollection[] = Array.from({ length: 10 }, (_, i) => {
-      return {
-        imageUrl:
-          'https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png',
-        name: 'Diamond Eyes' + i,
-        description:
-          'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-        id: i + 1,
-        price: 34.8,
-      };
-    });
-
-    setCartItems(items);
-    setIsLoading(false);
-  }, []);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
 
   return (
     <div className={styles.container}>
       <div className={styles.itemsCounter}>
         <span className={styles.caption}>
-          <b>Cart</b> - 3 items
+          <b>Cart</b> - {itemsSetForPurchase.length}{' '}
+          {pluralize('item', itemsSetForPurchase.length)}
         </span>
       </div>
       <div className={styles.actionButtons}>
-        <GlassyButton onClick={handleSelectAllClick}>Select All</GlassyButton>
-        <GlassyButton onClick={handleClearAllClick}>Clear All</GlassyButton>
+        <GlassyButton onClick={handleSelectAllClick} disabled={!list.length}>
+          Select All
+        </GlassyButton>
+        <GlassyButton
+          icon={<BinIcon />}
+          disabled={!list.length}
+          onClick={handleClearAllClick}
+        >
+          Clear All
+        </GlassyButton>
       </div>
-      {isLoading && <span className={styles.loading}>Loading...</span>}
       <div className={styles.content}>
-        {cartItems.map((item) => (
-          <CartItem key={item.id} data={item} />
+        {list.map((item: ICollection) => (
+          <CartItem
+            key={item.id}
+            data={item}
+            isSelected={itemsForPurchaseIds.includes(item.id)}
+          />
         ))}
       </div>
+      {selectedItemsTotal > 0 && (
+        <div className={styles.fixedPanel}>
+          <Button onClick={handlePayClick}>
+            To pay {selectedItemsTotal.toFixed(2)} TON
+          </Button>
+        </div>
+      )}
+      {list.length === 0 && <NothingFound description='Cart is empty' />}
     </div>
   );
 };

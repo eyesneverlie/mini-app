@@ -12,8 +12,6 @@ import styles from './StickyMenu.module.scss';
 export const StickyMenu = () => {
   const { pathname } = useLocation();
 
-  console.log('pathname = ', pathname === APP_ROUTES.market);
-
   return (
     <nav className={styles.bar}>
       <NavLink

@@ -1,0 +1,47 @@
+@use '../../styles/colors';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+  color: colors.$color-white-40;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  line-height: normal;
+  padding-bottom: 80px;
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: colors.$color-white;
+}
+
+.subTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 91px;
+  width: 100%;
+
+  button {
+    flex: 1 1 auto;
+    height: 48px;
+    max-width: 48%;
+  }
+}

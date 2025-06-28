@@ -1,35 +1,24 @@
-import { useDispatch } from 'react-redux';
-import { Select, CircularButton } from '../../../ui';
-import { ModalType } from '../../../data-access';
-import { storeModalsActions } from '../../../store/slices/modals';
+import { NavLink } from 'react-router-dom';
+import { APP_ROUTES } from '../../../data-access';
+import { TonIcon, PlusIcon } from '../../icons';
+import { GlassyButton } from '../../../ui';
 import styles from './ActionButtons.module.scss';
 
 export const ActionButtons = () => {
-  const dispatch = useDispatch();
-
-  const toggleDepositModal = (): void => {
-    dispatch(storeModalsActions.open({ type: ModalType.DepositFunds }));
-  };
-
-  const toggleWithdrawModal = (): void => {
-    dispatch(storeModalsActions.open({ type: ModalType.WithdrawFunds }));
-  };
+  const handleOnClick = (): void => {};
 
   return (
     <div className={styles.container}>
-      <Select size='small' options={[{ label: '0.0', value: '0' }]} />
-      <CircularButton
-        className={styles.circularButton}
-        onClick={toggleDepositModal}
-      >
-        +
-      </CircularButton>
-      <CircularButton
-        className={styles.circularButton}
-        onClick={toggleWithdrawModal}
-      >
-        −
-      </CircularButton>
+      <NavLink to={APP_ROUTES.walletBalance}>
+        <GlassyButton
+          icon={<TonIcon />}
+          iconPosition='left'
+          className={styles.circularButton}
+          onClick={handleOnClick}
+        >
+          0.0 <PlusIcon />
+        </GlassyButton>
+      </NavLink>
     </div>
   );
 };

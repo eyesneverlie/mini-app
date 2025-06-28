@@ -1,23 +1,29 @@
+import { useDispatch } from 'react-redux';
 import { Button, CircularButton } from '../../../ui';
 import { ICollection } from '../../../data-access';
-import { TonIcon } from '../../../components/icons/TonIcon/TonIcon';
+import { BinIcon, TonBlueIcon, CheckMarkIcon } from '../../../components/icons';
+import { storeCartActions } from '../../../store/slices';
 import styles from './CartItem.module.scss';
 
 interface ICartItemProps {
   data: ICollection;
+  isSelected: boolean;
 }
 
-export const CartItem = ({ data }: ICartItemProps) => {
+export const CartItem = ({ data, isSelected }: ICartItemProps) => {
+  const dispatch = useDispatch();
+
   const handleButtonClick = (): void => {
     console.log('handle button click');
   };
 
   const toggleItem = (): void => {
-    console.log('toggle item = ', data);
+    console.log('toggle item');
+    dispatch(storeCartActions.toggleItem({ id: data.id }));
   };
 
   const handleDeleteClick = (): void => {
-    console.log('delete item = ', data);
+    dispatch(storeCartActions.removeItem({ id: data.id }));
   };
 
   return (
@@ -28,18 +34,28 @@ export const CartItem = ({ data }: ICartItemProps) => {
           <span className={styles.caption}>{data.name}</span>
           <span className={styles.id}>#{data.id}</span>
           <Button
-            icon={<TonIcon />}
+            icon={<TonBlueIcon />}
             iconPlacement='right'
             className={styles.button}
             onClick={handleButtonClick}
+            theme='white'
           >
             {data.price}
           </Button>
         </div>
 
         <div className={styles.actions}>
-          <CircularButton onClick={toggleItem}>T</CircularButton>
-          <CircularButton onClick={handleDeleteClick}>R</CircularButton>
+          <span
+            className={`${styles.selectMark} ${
+              isSelected ? styles.selected : ''
+            }`}
+            onClick={toggleItem}
+          >
+            <CheckMarkIcon />
+          </span>
+          <CircularButton onClick={handleDeleteClick}>
+            <BinIcon />
+          </CircularButton>
         </div>
       </div>
     </div>

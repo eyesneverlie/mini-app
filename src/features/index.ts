@@ -4,3 +4,6 @@ export * from './Market';
 export * from './Pass';
 export * from './Profile';
 export * from './Cart';
+export * from './WalletBalance';
+export * from './Cashback';
+export * from './Sell';

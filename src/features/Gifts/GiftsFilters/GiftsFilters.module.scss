@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.selectors {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 8px;
+  width: 100%;
+}
+
+.search,
+.sorting {
+  width: 50%;
+}
+
+.sorting {
+  min-height: 48px;
+}
+
+.search {
+  margin-right: 8px;
+}
+
+.resetButton {
+  margin-right: 8px;
+}

@@ -1,45 +1,38 @@
-import { useState, useCallback } from 'react';
-import { Filters, EntitiesSwitcher } from '../../components';
-import { SegmentType } from '../../data-access';
+import { useState } from 'react';
+import { EntitiesSwitcher, SegmentToggle } from '../../components';
+import { SwitchableSegment } from '../../data-access';
 import { Collections } from './Collections';
-import { Catalog } from './Catalog';
 import { Hot } from './Hot';
-
-import { SegmentToggle } from '../../components/SegmentToggle';
+import { AllListing } from './AllListing';
 import styles from './Market.module.scss';
 
-const ENTITIES = ['All', 'Collections', 'Hot'];
+const tabs = [
+  { id: 'all', title: 'All' },
+  { id: 'collections', title: 'Collections' },
+  { id: 'hot', title: 'Hot' },
+];
 
 export const Market = () => {
-  const [activeEntity, setActiveEntity] = useState<string>(ENTITIES[0]);
+  const [activeTab, setActiveTab] = useState<string>(tabs[0].id);
+  const [activeCategory, setActiveCategory] = useState<SwitchableSegment>(); // Gifts or Stickers
 
-  const handleSegmentToggle = useCallback(
-    (activeSegment: SegmentType): void => {
-      console.log('active segment = ', activeSegment);
-    },
-    []
-  );
-
-  const handleEntityChange = (tab: string): void => {
-    setActiveEntity(tab);
-  };
+  console.log('activeCategory = ', { activeCategory });
 
   return (
     <div className={styles.container}>
-      <Filters />
       <EntitiesSwitcher
-        activeTab={activeEntity}
-        tabs={ENTITIES}
-        onChange={handleEntityChange}
+        activeTab={activeTab}
+        tabs={tabs}
+        onChange={setActiveTab}
       />
       <SegmentToggle
         className={styles.segmentToggle}
-        onToggle={handleSegmentToggle}
+        onToggle={setActiveCategory}
       />
       <div className={styles.content}>
-        {activeEntity === 'All' && <Catalog />}
-        {activeEntity === 'Collections' && <Collections />}
-        {activeEntity === 'Hot' && <Hot />}
+        {activeTab === 'all' && <AllListing categoryId={null} />}
+        {activeTab === 'collections' && <Collections />}
+        {activeTab === 'hot' && <Hot />}
       </div>
     </div>
   );

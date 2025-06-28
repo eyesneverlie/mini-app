@@ -1,4 +1,4 @@
-@import '../../styles/colors';
+@use '../../styles/colors';
 
 .tabs {
   display: flex;
@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $color-white-40;
+  color: colors.$color-white-40;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -21,7 +21,7 @@
   cursor: pointer;
 
   &:not(:last-child) {
-    margin-right: 24px;
+    margin-right: 18px;
   }
 
   &:hover {
@@ -30,6 +30,6 @@
 }
 
 .active {
-  color: $color-white;
-  text-shadow: 0 0 .65px $color-white, 0 0 .65px $color-white;
+  color: colors.$color-white;
+  text-shadow: 0 0 .65px colors.$color-white, 0 0 .65px colors.$color-white;
 }

@@ -5,4 +5,6 @@ export const APP_ROUTES = {
   pass: '/pass',
   profile: '/profile',
   cart: '/cart',
+  walletBalance: '/wallet-balance',
+  cashback: '/cashback'
 };

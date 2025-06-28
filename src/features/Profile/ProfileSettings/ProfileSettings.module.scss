@@ -1,0 +1,65 @@
+@use '../../../styles/colors';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;  
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  color: colors.$color-white-40;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 7px;
+}
+
+.buttonGroup,
+.actionButtons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.buttonGroup {
+  button {
+    display: flex;
+    width: 64px;
+    padding: 10px 28px;
+    gap: 10px;
+
+    &:nth-child(1) {
+      margin-right: 8px;
+    }
+  }
+}
+
+.actionButtons {
+  button {
+    height: 48px;
+
+    &:nth-child(1) {
+      width: 111px;
+      flex-shrink: 0;
+      margin-right: 8px;
+    }
+    &:nth-child(2) {
+      flex: 1 1 auto;
+    }
+  }
+}
